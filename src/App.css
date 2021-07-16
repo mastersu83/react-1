@@ -11,34 +11,11 @@
 	grid-gap: 10px;
 }
 
-.header__img {
-	width: 50px;
-	height: 50px;
-}
-
-.header {
-	grid-area: header;
-	background-color: green;
-	display: flex;
-	align-items: center;
-	padding: 15px;
-}
-
 .nav {
 	grid-area: nav;
 	background-color: green;
 	color: #ffffff;
 	padding: 15px;
-}
-
-.profile {
-	grid-area: conten;
-	background-color: blue;
-	display: flex;
-}
-
-.content__img {
-	max-width: 100%;
 }
 
 img {

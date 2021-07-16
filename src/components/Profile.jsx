@@ -1,9 +1,11 @@
+import classes from './Profile.module.css';
+
 const Profile = () => {
 	return (
-		<div className='profile'>
+		<div className={classes.profile}>
 			<div>
 				<img
-					className='content__img'
+					className={classes.img}
 					src='https://7oom.ru/wp-content/uploads/peizaji-01.jpg'
 					alt=''
 				/>
