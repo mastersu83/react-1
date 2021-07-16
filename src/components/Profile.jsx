@@ -14,8 +14,8 @@ const Profile = () => {
 				My posts
 				<div>New post</div>
 				<div>
-					<div>post1</div>
-					<div>post2</div>
+					<div className={classes.item}>post1</div>
+					<div className={classes.item}>post2</div>
 				</div>
 			</div>
 		</div>
