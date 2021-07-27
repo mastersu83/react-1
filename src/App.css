@@ -21,3 +21,8 @@
 img {
 	display: block;
 }
+
+.app-wrapper-content {
+	grid-area: conten;
+	background-color: blue;
+}
