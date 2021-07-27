@@ -1,5 +1,5 @@
-import MyPosts from './MyPosts/MyPosts';
-import classes from './Profile.module.css';
+import MyPosts from "./MyPosts/MyPosts";
+import classes from "./Profile.module.css";
 
 const Profile = () => {
 	return (
@@ -7,11 +7,11 @@ const Profile = () => {
 			<div>
 				<img
 					className={classes.img}
-					src='https://7oom.ru/wp-content/uploads/peizaji-01.jpg'
-					alt=''
+					src="https://7oom.ru/wp-content/uploads/peizaji-01.jpg"
+					alt=""
 				/>
 			</div>
-			<MyPosts />
+			<MyPosts message="hello" />
 		</div>
 	);
 };
