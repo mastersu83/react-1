@@ -11,13 +11,6 @@
 	grid-gap: 10px;
 }
 
-.nav {
-	grid-area: nav;
-	background-color: green;
-	color: #ffffff;
-	padding: 15px;
-}
-
 img {
 	display: block;
 }
