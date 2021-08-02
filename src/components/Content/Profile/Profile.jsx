@@ -1,16 +1,10 @@
 import MyPosts from "./MyPosts/MyPosts";
-import classes from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
   return (
     <div>
-      <div>
-        <img
-          className={classes.img}
-          src="https://7oom.ru/wp-content/uploads/peizaji-01.jpg"
-          alt=""
-        />
-      </div>
+      <ProfileInfo />
       <MyPosts message="hello" />
     </div>
   );
