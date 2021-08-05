@@ -6,14 +6,20 @@ import Settings from "./Settings/Settings";
 import Dialogs from "./Dialogs/Dialogs";
 import classes from "./Content.module.css";
 
-const Content = () => {
+const Content = (props) => {
   return (
     <main className={classes.content}>
-      <Route path="/dialogs" component={Dialogs} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/news" component={News} />
-      <Route path="/music" component={Music} />
-      <Route path="/settings" component={Settings} />
+      <Route
+        path="/dialogs"
+        render={() => <Dialogs state={props.state.dialogsPage} />}
+      />
+      <Route
+        path="/profile"
+        render={() => <Profile state={props.state.profilePage} />}
+      />
+      <Route path="/news" render={() => <News />} />
+      <Route path="/music" render={() => <Music />} />
+      <Route path="/settings" render={() => <Settings />} />
     </main>
   );
 };
