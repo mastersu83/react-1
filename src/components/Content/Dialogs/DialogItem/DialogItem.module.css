@@ -1,7 +1,17 @@
 a.active {
-    color: #001aff;
+  color: #001aff;
 }
 
 .item {
-    color: white;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.link {
+  color: white;
+}
+.img {
+  width: 50px;
+  border-radius: 20%;
 }
