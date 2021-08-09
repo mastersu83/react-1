@@ -12,6 +12,8 @@ const App = (props) => {
         state={props.state}
         addPost={props.addPost}
         updateNewPostText={props.updateNewPostText}
+        addMessage={props.addMessage}
+        updateNewMessageText={props.updateNewMessageText}
       />
     </div>
   );
