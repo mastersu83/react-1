@@ -12,11 +12,7 @@ const Content = (props) => {
       <Route
         path="/dialogs"
         render={() => (
-          <Dialogs
-            state={props.state.dialogsPage}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText}
-          />
+          <Dialogs state={props.state.dialogsPage} dispatch={props.dispatch} />
         )}
       />
       <Route
@@ -24,8 +20,7 @@ const Content = (props) => {
         render={() => (
           <Profile
             profilePage={props.state.profilePage}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText}
+            dispatch={props.dispatch}
           />
         )}
       />
