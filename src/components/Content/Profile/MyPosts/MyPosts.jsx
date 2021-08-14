@@ -4,7 +4,7 @@ import React from "react";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from "../../../../Redux/state";
+} from "../../../../Redux/profile_reducer";
 
 const MyPosts = (props) => {
   let addPost = () => {
@@ -17,7 +17,6 @@ const MyPosts = (props) => {
 
   let onPostChange = (e) => {
     let text = e.target.value;
-    console.log(e);
     let action = updateNewPostTextActionCreator(text);
     props.dispatch(action);
   };
