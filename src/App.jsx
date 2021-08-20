@@ -9,7 +9,7 @@ const App = (props) => {
     <div className="app-wrapper">
       <Navbar />
       <Route path="/" render={() => <Header />} />
-      <Content state={props.state} dispatch={props.dispatch} />
+      <Content store={props.store} />
     </div>
   );
 };
