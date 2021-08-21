@@ -3,19 +3,19 @@ import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import StoreContext from "./StoreContext";
+import { Provider } from "react-redux";
 
 export let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <StoreContext.Provider value={store}>
+        <Provider store={store}>
           <App
           // state={state}
           // dispatch={store.dispatch.bind(store)}
           // store={store}
           />
-        </StoreContext.Provider>
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
