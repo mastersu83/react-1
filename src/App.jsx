@@ -9,7 +9,9 @@ const App = (props) => {
     <div className="app-wrapper">
       <Navbar />
       <Route path="/" render={() => <Header />} />
-      <Content store={props.store} />
+      <Content
+      // store={props.store}
+      />
     </div>
   );
 };
