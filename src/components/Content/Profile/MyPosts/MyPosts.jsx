@@ -3,6 +3,7 @@ import Post from "./Post/Post";
 import React from "react";
 
 const MyPosts = (props) => {
+  console.log(props);
   let onAddPost = () => {
     props.addPost();
   };

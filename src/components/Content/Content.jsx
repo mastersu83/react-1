@@ -5,26 +5,14 @@ import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import classes from "./Content.module.css";
 import DialogsContainer from "./Dialogs/DialogsContainer";
+import UsersContainer from "./Users/UsersContainer";
 
 const Content = (props) => {
   return (
     <main className={classes.content}>
-      <Route
-        path="/dialogs"
-        render={() => (
-          <DialogsContainer
-          // store={props.store}
-          />
-        )}
-      />
-      <Route
-        path="/profile"
-        render={() => (
-          <Profile
-          // store={props.store}
-          />
-        )}
-      />
+      <Route path="/dialogs" render={() => <DialogsContainer />} />
+      <Route path="/profile" render={() => <Profile />} />
+      <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/news" render={() => <News />} />
       <Route path="/music" render={() => <Music />} />
       <Route path="/settings" render={() => <Settings />} />

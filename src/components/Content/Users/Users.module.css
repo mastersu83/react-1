@@ -1,0 +1,14 @@
+.user {
+  padding: 15px;
+}
+
+.userPhoto {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.userBlock {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
