@@ -3,7 +3,7 @@ import {
   updateNewPostTextActionCreator,
 } from "../../../../Redux/profile_reducer";
 import { connect } from "react-redux";
-import MyPosts from "./MyPosts";
+import MyPosts from "./MyPostsC";
 
 // const MyPostsContainer = (props) => {
 //   return (

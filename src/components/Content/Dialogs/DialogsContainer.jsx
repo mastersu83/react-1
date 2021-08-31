@@ -2,7 +2,7 @@ import {
   addMessageActionCreator,
   updateNewMessageTextActionCreator,
 } from "../../../Redux/dialogs_reducer";
-import Dialogs from "./Dialogs";
+import Dialogs from "./DialogsC";
 import { connect } from "react-redux";
 
 // const DialogsContainer = (props) => {
