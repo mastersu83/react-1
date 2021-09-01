@@ -12,3 +12,13 @@
 /*  justify-content: space-between;*/
 /*  margin-bottom: 20px;*/
 /*}*/
+
+.selectedPage {
+  font-weight: bold;
+  color: white;
+}
+
+.pageNum {
+  margin-right: 10px;
+  cursor: pointer;
+}
