@@ -3,7 +3,7 @@ import classes from "./Users.module.css";
 import * as axios from "axios";
 import userPhoto from "../../assets/images/headache.png";
 
-const Users = (props) => {
+const UsersFunc = (props) => {
   let getUsers = (page) => {
     if (props.users.length === 0) {
       axios
@@ -96,4 +96,4 @@ const Users = (props) => {
   );
 };
 
-export default Users;
+export default UsersFunc;

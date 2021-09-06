@@ -4,7 +4,7 @@ import Content from "./components/Content/Content";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Navbar />

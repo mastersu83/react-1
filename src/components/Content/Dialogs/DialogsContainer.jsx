@@ -5,30 +5,6 @@ import {
 import Dialogs from "./DialogsC";
 import { connect } from "react-redux";
 
-// const DialogsContainer = (props) => {
-//   return (
-//     <StoreContext.Consumer>
-//       {(store) => {
-//         let addMessage = () => {
-//           store.dispatch(addMessageActionCreator());
-//         };
-//
-//         let onMessageChange = (text) => {
-//           let action = updateNewMessageTextActionCreator(text);
-//           store.dispatch(action);
-//         };
-//         return (
-//           <Dialogs
-//             dialogsPage={store.getState().dialogsPage}
-//             addMessage={addMessage}
-//             onMessageChange={onMessageChange}
-//           />
-//         );
-//       }}
-//     </StoreContext.Consumer>
-//   );
-// };
-
 let mapStateToProps = (state) => {
   return {
     dialogs: state.dialogsPage.dialogs,
