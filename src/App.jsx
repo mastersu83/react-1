@@ -1,17 +1,16 @@
+import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
   return (
     <div className="app-wrapper">
       <Navbar />
-      <Route path="/" render={() => <Header />} />
-      <Content
-      // store={props.store}
-      />
+      <Route path="/" render={() => <HeaderContainer />} />
+      <Content />
     </div>
   );
 };
