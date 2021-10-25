@@ -26,18 +26,28 @@ export const usersAPI = {
       return response.data;
     });
   },
+  follow(id) {
+    return instance.post(`follow/${id}`).then((response) => {
+      return response.data;
+    });
+  },
+  unfollow(id) {
+    return instance.delete(`follow/${id}`).then((response) => {
+      return response.data;
+    });
+  },
 };
 
-export const follow = (id) => {
-  return instance.post(`follow/${id}`).then((response) => {
-    return response.data;
-  });
-};
-export const unfollow = (id) => {
-  return instance.delete(`follow/${id}`).then((response) => {
-    return response.data;
-  });
-};
+// export const follow = (id) => {
+//   return instance.post(`follow/${id}`).then((response) => {
+//     return response.data;
+//   });
+// };
+// export const unfollow = (id) => {
+//   return instance.delete(`follow/${id}`).then((response) => {
+//     return response.data;
+//   });
+// };
 
 // axios
 //     .post(
