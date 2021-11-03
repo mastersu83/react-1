@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/headache.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -12,11 +11,12 @@ const Users = (props) => {
   }
   return (
     <div>
-      <div className={classes.user}>
+      <div className={classes.users}>
         <div>
           {pages.map((p) => {
             return (
               <span
+                key={p}
                 className={`${
                   props.currentPage === p && classes.selectedPage
                 }  ${classes.pageNum}`}
@@ -31,63 +31,42 @@ const Users = (props) => {
         </div>
         {props.users.map((u) => (
           <div key={u.id} className={classes.userBlock}>
-            <span>
-              <div>
-                <NavLink to={"/profile/" + u.id}>
-                  <img
-                    src={u.photos.small != null ? u.photos.small : userPhoto}
-                    alt=""
-                    className={classes.userPhoto}
-                  />
-                </NavLink>
-              </div>
-              <div>
-                {u.followed ? (
-                  <button
-                    disabled={props.followingInProgress.some(
-                      (id) => id === u.id
-                    )}
-                    onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      usersAPI.unfollow(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.unfollow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
-                    }}
-                  >
-                    Unfollow
-                  </button>
-                ) : (
-                  <button
-                    disabled={props.followingInProgress.some(
-                      (id) => id === u.id
-                    )}
-                    onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
+            <div>{u.id}</div>
+            <NavLink to={"/profile/" + u.id}>
+              <img
+                src={u.photos.small != null ? u.photos.small : userPhoto}
+                alt=""
+                className={classes.userPhoto}
+              />
+            </NavLink>
+            <div>
+              {u.followed ? (
+                <button
+                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.unfollowThunk(u.id);
+                  }}
+                >
+                  Unfollow
+                </button>
+              ) : (
+                <button
+                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.followThunk(u.id);
+                  }}
+                >
+                  Follow
+                </button>
+              )}
+            </div>
 
-                      usersAPI.follow(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
-                    }}
-                  >
-                    Follow
-                  </button>
-                )}
-              </div>
-            </span>
             <span>
               <div>{u.name}</div>
               <div>{u.status}</div>
             </span>
-            <span>
-              <div>{"u.location.country"}</div>
-              <div>{"u.location.city"}</div>
-            </span>
+            <div>{"u.location.country"}</div>
+            <div>{"u.location.city"}</div>
           </div>
         ))}
       </div>
