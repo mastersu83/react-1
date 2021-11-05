@@ -1,35 +1,23 @@
-import React from "react";
-import Header from "./Header";
-import { connect } from "react-redux";
-import { setAuthUserData } from "../../Redux/auth_reducer";
-import { setUsersProfile } from "../../Redux/profile_reducer";
-import { usersAPI } from "../../api/api";
+import React from 'react';
+import Header from './Header';
+import { connect } from 'react-redux';
+import { setAuthUserDataThunk } from '../../Redux/auth_reducer';
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    usersAPI.getAuth().then((data) => {
-      // debugger;
-      if (data.resultCode === 0) {
-        let { id, email, login } = data.data;
-        this.props.setAuthUserData(id, email, login);
-      }
-      // debugger;
-      // this.props.toggleIsFetching(false);
-      // this.props.setUsers(response.data.items);
-      // this.props.setTotalUsersCount(response.data.totalCount);
-    });
-  }
+	componentDidMount() {
+		this.props.setAuthUserDataThunk();
+	}
 
-  render() {
-    return <Header {...this.props} />;
-  }
+	render() {
+		return <Header isAuth={this.props.isAuth} login={this.props.login} />;
+	}
 }
 
 const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth,
-  login: state.auth.login,
+	isAuth: state.auth.isAuth,
+	login: state.auth.login,
 });
 
-export default connect(mapStateToProps, { setAuthUserData, setUsersProfile })(
-  HeaderContainer
-);
+export default connect(mapStateToProps, {
+	setAuthUserDataThunk,
+})(HeaderContainer);

@@ -1,7 +1,14 @@
 .img {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .item {
-    color: red;
+	color: red;
+}
+
+.userPhoto {
+	background-color: #fff;
+	width: 80px;
+	border-radius: 10px;
+	margin: 10px;
 }
