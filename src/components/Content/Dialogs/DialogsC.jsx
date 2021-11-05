@@ -3,15 +3,14 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
 import { Redirect } from "react-router-dom";
-
 class Dialogs extends React.Component {
   addMessage = () => {
-    this.props.addMessage();
+    this.props.addMessageActionCreator();
   };
 
   onMessageChange = (e) => {
     let text = e.target.value;
-    this.props.onMessageChange(text);
+    this.props.updateNewMessageTextActionCreator(text);
   };
 
   render() {
