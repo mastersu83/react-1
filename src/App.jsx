@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Content from "./components/Content/Content";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Content from "./components/Content/Content";
 
 const App = () => {
   return (

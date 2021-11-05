@@ -1,19 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './Login.styles';
+import React from "react";
 
-const Login = (props) => (
-  <div className="LoginWrapper">
-    Test content
-  </div>
-);
-
-Login.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Login.defaultProps = {
-  // bla: 'test',
+const Login = () => {
+  return <h1>Login</h1>;
 };
 
 export default Login;

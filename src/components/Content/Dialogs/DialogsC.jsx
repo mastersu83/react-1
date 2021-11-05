@@ -2,6 +2,7 @@ import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class Dialogs extends React.Component {
   addMessage = () => {
@@ -14,6 +15,7 @@ class Dialogs extends React.Component {
   };
 
   render() {
+    if (!this.props.isAuth) return <Redirect to={"/login"} />;
     return (
       <div className={classes.dialogs}>
         <div className={classes.items}>
