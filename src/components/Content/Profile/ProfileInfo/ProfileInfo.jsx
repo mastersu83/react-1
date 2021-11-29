@@ -8,13 +8,9 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+
   return (
     <div>
-      {/*<img*/}
-      {/*  className={classes.img}*/}
-      {/*  src="https://7oom.ru/wp-content/uploads/peizaji-01.jpg"*/}
-      {/*  alt=""*/}
-      {/*/>*/}
       <div>
         <img
           src={
@@ -25,7 +21,11 @@ const ProfileInfo = (props) => {
           alt=""
           className={classes.userPhoto}
         />
-        <ProfileStatus status={"hello"} />
+        <ProfileStatus
+          updateStatusText={props.updateStatusText}
+          status={props.status}
+          updateStatusThunk={props.updateStatusThunk}
+        />
         <div>{props.profile.fullName}</div>
       </div>
       <div>

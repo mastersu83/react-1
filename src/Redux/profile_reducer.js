@@ -1,8 +1,10 @@
-import { usersAPI } from "../api/api";
+import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USERS_PROFILE = "SET_USERS_PROFILE";
+const SET_STATUS = "SET_STATUS";
+const UPDATE_STATUS_TEXT = "UPDATE_STATUS_TEXT";
 
 let initialState = {
   posts: [
@@ -14,6 +16,8 @@ let initialState = {
   newPostText: "",
   profile: null,
   currentId: 5,
+  status: "",
+  updateStatusText: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -36,6 +40,13 @@ const profileReducer = (state = initialState, action) => {
     case SET_USERS_PROFILE: {
       return { ...state, profile: action.profile };
     }
+    case SET_STATUS: {
+      return { ...state, status: action.status };
+    }
+    case UPDATE_STATUS_TEXT: {
+      return { ...state, status: action.text };
+    }
+
     default:
       return state;
   }
@@ -50,6 +61,12 @@ export const setUsersProfile = (profile) => ({
   type: SET_USERS_PROFILE,
   profile,
 });
+
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
+
 export const updateNewPostTextActionCreator = (text) => {
   return {
     type: UPDATE_NEW_POST_TEXT,
@@ -57,10 +74,34 @@ export const updateNewPostTextActionCreator = (text) => {
   };
 };
 
+export const updateStatusText = (text) => {
+  return {
+    type: UPDATE_STATUS_TEXT,
+    text,
+  };
+};
+
 export const setUsersProfileThunk = (userId) => {
   return (dispatch) => {
-    usersAPI.getProfile(userId).then((data) => {
+    profileAPI.getProfile(userId).then((data) => {
       dispatch(setUsersProfile(data));
+    });
+  };
+};
+export const setStatusThunk = (userId) => {
+  return (dispatch) => {
+    profileAPI.getStatus(userId).then((response) => {
+      dispatch(setStatus(response.data));
+    });
+  };
+};
+
+export const updateStatusThunk = (status) => {
+  return (dispatch) => {
+    profileAPI.updateStatus(status).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
     });
   };
 };
