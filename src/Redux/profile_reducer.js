@@ -13,7 +13,6 @@ let initialState = {
     { id: 3, message: "welcome", likeCount: 73 },
     { id: 4, message: "hello", likeCount: 12 },
   ],
-  newPostText: "",
   profile: null,
   currentId: 5,
   status: "",
@@ -25,17 +24,13 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       let newPost = {
         id: state.currentId++,
-        message: state.newPostText,
+        message: action.newPostBody,
         likeCount: 0,
       };
       return {
         ...state,
         posts: [...state.posts, newPost],
-        newPostText: "",
       };
-    }
-    case UPDATE_NEW_POST_TEXT: {
-      return { ...state, newPostText: action.newText };
     }
     case SET_USERS_PROFILE: {
       return { ...state, profile: action.profile };
@@ -52,9 +47,10 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = () => {
+export const addPostActionCreator = (newPostBody) => {
   return {
     type: ADD_POST,
+    newPostBody,
   };
 };
 export const setUsersProfile = (profile) => ({
