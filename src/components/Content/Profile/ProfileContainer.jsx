@@ -7,10 +7,10 @@ import {
   updateStatusText,
   updateStatusThunk,
 } from "../../../Redux/profile_reducer";
-import { withRouter } from "react-router";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import { setAuthUserDataThunk } from "../../../Redux/auth_reducer";
+import { withRouter } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
