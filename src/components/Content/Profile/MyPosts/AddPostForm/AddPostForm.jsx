@@ -1,5 +1,5 @@
 import { Field, reduxForm } from "redux-form";
-import { Textarea } from "../../../common/FormsControls/FormsControls";
+import { Textarea } from "../../../../common/FormsControls/FormsControls";
 import classes from "../MyPosts.module.css";
 import {
   maxLengthCreator,

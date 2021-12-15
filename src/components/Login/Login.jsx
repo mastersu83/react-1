@@ -1,10 +1,11 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../Content/common/FormsControls/FormsControls";
+import { Input } from "../common/FormsControls/FormsControls";
 import { required } from "../../utils/validators/validators";
 import { connect } from "react-redux";
 import { loginOutThunk, loginThunk } from "../../Redux/auth_reducer";
+import classes from '../common/FormsControls/FormsControls.module.css'
 
 const LoginForm = (props) => {
   return (
@@ -26,6 +27,7 @@ const LoginForm = (props) => {
           validate={[required]}
         />
       </div>
+        {props.error && <div className={classes.formSummaryError}>{props.error}</div>}
       <div>
         <Field component={Input} name={"rememberMe"} type={"checkbox"} />{" "}
         remember me
@@ -43,6 +45,7 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
   const onSubmit = (formData) => {
+    console.log(formData);
     props.loginThunk(formData.email, formData.password, formData.rememberMe);
   };
 
