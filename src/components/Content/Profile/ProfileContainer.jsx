@@ -10,6 +10,12 @@ import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import { setAuthUserDataThunk } from "../../../Redux/auth_reducer";
 import { withRouter } from "react-router-dom";
+import {
+  geIisAuthSelector,
+  getAuthorizedUserIdSelector,
+  getProfileSelector,
+  getStatusSelector,
+} from "../../../Redux/profile_selectors";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -36,10 +42,10 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status,
-  authorizedUserId: state.auth.userId,
-  isAuth: state.auth.isAuth,
+  profile: getProfileSelector(state),
+  status: getStatusSelector(state),
+  authorizedUserId: getAuthorizedUserIdSelector(state),
+  isAuth: geIisAuthSelector(state),
 });
 
 export default compose(

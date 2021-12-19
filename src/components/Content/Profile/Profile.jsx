@@ -9,7 +9,6 @@ const Profile = (props) => {
         profile={props.profile}
         status={props.status}
         updateStatusThunk={props.updateStatusThunk}
-        updateStatusText={props.updateStatusText}
       />
       userId
       <MyPostsContainer />
