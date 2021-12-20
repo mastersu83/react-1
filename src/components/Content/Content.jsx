@@ -8,12 +8,14 @@ import UsersContainer from "./Users/UsersContainer";
 import NewsContainer from "./News/NewsContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
 import Login from "../Login/Login";
+// import Profile from "./Profile/Profile";
 
 const Content = () => {
   return (
     <main className={classes.content}>
       <Route path="/dialogs" render={() => <DialogsContainer />} />
       <Route path="/login" render={() => <Login />} />
+      {/*<Route path="/profile/:userId?" render={() => <Profile />} />*/}
       <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
       <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/news" render={() => <NewsContainer />} />

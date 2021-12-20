@@ -11,3 +11,6 @@ export const getAuthorizedUserIdSelector = (state) => {
 export const geIisAuthSelector = (state) => {
   return state.auth.isAuth;
 };
+// export const idUserProfileSelector = (state) => {
+//   return state.profilePage.idUserProfile;
+// };

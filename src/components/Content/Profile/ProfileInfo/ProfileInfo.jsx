@@ -4,8 +4,11 @@ import Preloader from "../../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/headache.png";
 // import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+// import { useSelector } from "react-redux";
+// import { getStatusSelector } from "../../../../Redux/profile_selectors";
 
 const ProfileInfo = (props) => {
+  // const status = useSelector(getStatusSelector);
   if (!props.profile) {
     return <Preloader />;
   }
@@ -13,6 +16,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <div>
+        <div>{props.profile.userId}</div>
         <img
           src={
             props.profile.photos.large != null
@@ -23,7 +27,7 @@ const ProfileInfo = (props) => {
           className={classes.userPhoto}
         />
         <ProfileStatusWithHooks
-          updateStatusText={props.updateStatusText}
+          // status={status} />
           status={props.status}
           updateStatusThunk={props.updateStatusThunk}
         />

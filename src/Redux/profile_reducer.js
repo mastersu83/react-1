@@ -3,6 +3,7 @@ import { profileAPI } from "../api/api";
 const ADD_POST = "ADD_POST";
 const SET_USERS_PROFILE = "SET_USERS_PROFILE";
 const SET_STATUS = "SET_STATUS";
+// const GET_ID_USER_PROFILE = "GET_ID_USER_PROFILE";
 
 let initialState = {
   posts: [
@@ -12,7 +13,7 @@ let initialState = {
     { id: 4, message: "hello", likeCount: 12 },
   ],
   profile: null,
-  currentId: 5,
+  idUserProfile: null,
   status: "",
   updateStatusText: "",
 };
@@ -36,11 +37,21 @@ const profileReducer = (state = initialState, action) => {
     case SET_STATUS: {
       return { ...state, status: action.status };
     }
+    // case GET_ID_USER_PROFILE: {
+    //   return { ...state, idUserProfile: action.id };
+    // }
 
     default:
       return state;
   }
 };
+
+// export const getIdUserProfile = (id) => {
+//   return {
+//     type: GET_ID_USER_PROFILE,
+//     id,
+//   };
+// };
 
 export const addPostActionCreator = (newPostBody) => {
   return {

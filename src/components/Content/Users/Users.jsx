@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/headache.png";
 import { NavLink } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { getIdUserProfile } from "../../../Redux/profile_reducer";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,6 +11,13 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
+  // const dispatch = useDispatch();
+  //
+  // const getUserId = (id) => {
+  //   dispatch(getIdUserProfile(id));
+  // };
+
   return (
     <div>
       <div className={classes.users}>
@@ -34,6 +43,7 @@ const Users = (props) => {
             <div>{u.id}</div>
             <NavLink to={"/profile/" + u.id}>
               <img
+                // onClick={() => getUserId(u.id)}
                 src={u.photos.small != null ? u.photos.small : userPhoto}
                 alt=""
                 className={classes.userPhoto}
