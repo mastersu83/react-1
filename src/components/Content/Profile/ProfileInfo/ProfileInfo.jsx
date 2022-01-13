@@ -7,39 +7,36 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 // import { useSelector } from "react-redux";
 // import { getStatusSelector } from "../../../../Redux/profile_selectors";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ profile, status, updateStatusThunk }) => {
   // const status = useSelector(getStatusSelector);
-  if (!props.profile) {
+
+  if (!profile) {
     return <Preloader />;
   }
 
   return (
     <div>
       <div>
-        <div>{props.profile.userId}</div>
+        <div>{profile.userId}</div>
         <img
-          src={
-            props.profile.photos.large != null
-              ? props.profile.photos.small
-              : userPhoto
-          }
+          src={profile.photos.large != null ? profile.photos.small : userPhoto}
           alt=""
           className={classes.userPhoto}
         />
         <ProfileStatusWithHooks
           // status={status} />
-          status={props.status}
-          updateStatusThunk={props.updateStatusThunk}
+          status={status}
+          updateStatusThunk={updateStatusThunk}
         />
-        <div>{props.profile.fullName}</div>
+        <div>{profile.fullName}</div>
       </div>
       <div>
         <h3>Контакты</h3>
-        <div>Facebook: {props.profile.contacts.facebook}</div>
-        <div>Вконтакте: {props.profile.contacts.vk}</div>
-        <div>Twitter: {props.profile.contacts.twitter}</div>
-        <div>Instagram: {props.profile.contacts.instagram}</div>
-        <div>Github: {props.profile.contacts.github}</div>
+        <div>Facebook: {profile.contacts.facebook}</div>
+        <div>Вконтакте: {profile.contacts.vk}</div>
+        <div>Twitter: {profile.contacts.twitter}</div>
+        <div>Instagram: {profile.contacts.instagram}</div>
+        <div>Github: {profile.contacts.github}</div>
       </div>
     </div>
   );

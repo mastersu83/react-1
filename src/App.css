@@ -1,16 +1,20 @@
 .app-wrapper {
-	width: 1200px;
-	margin: 0 auto;
-	padding: 15px;
-	display: grid;
-	grid-template-areas:
-		"header header header"
-		"nav content content";
-	grid-template-rows: 60px 1fr;
-	grid-template-columns: 2fr 10fr;
-	grid-gap: 10px;
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav content content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
 }
 
 img {
-	display: block;
+  display: block;
+}
+
+body {
+  background-color: #eadbb6;
+  margin: 0;
 }

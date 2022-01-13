@@ -1,0 +1,14 @@
+.selectedPage {
+  font-weight: bold;
+  color: white;
+  pointer-events: none;
+}
+
+.selectedPage:disabled {
+  cursor: default;
+}
+
+.pageNum {
+  margin-right: 10px;
+  cursor: pointer;
+}

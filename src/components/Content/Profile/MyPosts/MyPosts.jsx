@@ -8,9 +8,11 @@ const MyPosts = (props) => {
     props.addPostActionCreator(value.newPostBody);
   };
 
-  let postsElements = props.posts.map((p) => (
-    <Post key={p.id} message={p.message} likeCount={p.likeCount} />
-  ));
+  let postsElements = [...props.posts]
+    .reverse()
+    .map((p) => (
+      <Post key={p.id} message={p.message} likeCount={p.likeCount} />
+    ));
 
   return (
     <div className={classes.postsBlock}>

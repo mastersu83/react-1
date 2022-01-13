@@ -1,7 +1,6 @@
 import classes from "./News.module.css";
 
-const News = (props) => {
-  console.log(props);
+const News = () => {
   return <div className={classes.news}>News</div>;
 };
 

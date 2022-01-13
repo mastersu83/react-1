@@ -9,9 +9,9 @@ import React from "react";
 
 const maxLength10 = maxLengthCreator(10);
 
-const AddPostForm = (props) => {
+const AddPostForm = ({ handleSubmit }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field
           placeholder={"enter massage"}

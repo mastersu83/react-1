@@ -1,15 +1,18 @@
 .users {
-	padding: 15px;
+  padding: 15px;
 }
-
+.selectedPage {
+  font-weight: bold;
+  color: white;
+}
 .userBlock {
 }
 
 .userPhoto {
-	background-color: #fff;
-	width: 80px;
-	border-radius: 10px;
-	margin: 10px;
+  background-color: #fff;
+  width: 80px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 /*.userBlock {*/
@@ -18,12 +21,7 @@
 /*  margin-bottom: 20px;*/
 /*}*/
 
-.selectedPage {
-	font-weight: bold;
-	color: white;
-}
-
 .pageNum {
-	margin-right: 10px;
-	cursor: pointer;
+  margin-right: 10px;
+  cursor: pointer;
 }

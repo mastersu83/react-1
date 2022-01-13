@@ -5,15 +5,13 @@
 
 .header {
   grid-area: header;
-  background-color: green;
+  background-color: #31b3f1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px;
 }
 .loginBlock {
-  margin-left: 50px;
-}
-
-.loginBlock a {
-  color: white;
+  display: flex;
+  align-items: center;
 }

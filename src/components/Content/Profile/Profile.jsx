@@ -13,7 +13,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 // } from "../../../Redux/profile_reducer";
 // import { setAuthUserDataThunk } from "../../../Redux/auth_reducer";
 
-const Profile = (props) => {
+const Profile = ({ profile, status, updateStatusThunk }) => {
   // const dispatch = useDispatch();
   //
   // const profile = useSelector(getProfileSelector);
@@ -32,12 +32,10 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo
-        // profile={profile}
-        profile={props.profile}
-        status={props.status}
-        updateStatusThunk={props.updateStatusThunk}
+        profile={profile}
+        status={status}
+        updateStatusThunk={updateStatusThunk}
       />
-      userId
       <MyPostsContainer />
     </div>
   );

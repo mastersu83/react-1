@@ -28,7 +28,7 @@ const profileReducer = (state = initialState, action) => {
       };
       return {
         ...state,
-        posts: [newPost, ...state.posts],
+        posts: [...state.posts, newPost],
       };
     }
     case SET_USERS_PROFILE: {
@@ -69,29 +69,20 @@ export const setStatus = (status) => ({
   status,
 });
 
-export const setUsersProfileThunk = (userId) => {
-  return (dispatch) => {
-    profileAPI.getProfile(userId).then((data) => {
-      dispatch(setUsersProfile(data));
-    });
-  };
+export const setUsersProfileThunk = (userId) => async (dispatch) => {
+  let data = await profileAPI.getProfile(userId);
+  dispatch(setUsersProfile(data));
 };
-export const setStatusThunk = (userId) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userId).then((response) => {
-      dispatch(setStatus(response.data));
-    });
-  };
+export const setStatusThunk = (userId) => async (dispatch) => {
+  let response = await profileAPI.getStatus(userId);
+  dispatch(setStatus(response.data));
 };
 
-export const updateStatusThunk = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
-  };
+export const updateStatusThunk = (status) => async (dispatch) => {
+  let response = await profileAPI.updateStatus(status);
+  if (response.data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
 };
 
 export default profileReducer;
