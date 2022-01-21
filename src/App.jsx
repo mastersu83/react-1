@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeAppThunk } from './Redux/app_reducer';
 import Preloader from './components/common/Preloader/Preloader';
+import 'antd/dist/antd.css';
 
 class App extends React.Component {
 	componentDidMount() {
