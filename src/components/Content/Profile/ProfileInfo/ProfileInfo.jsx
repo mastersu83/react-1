@@ -1,9 +1,9 @@
-import React from "react";
-import classes from "./ProfileInfo.module.css";
-import Preloader from "../../../common/Preloader/Preloader";
-import userPhoto from "../../../assets/images/headache.png";
+import React from 'react';
+import classes from './ProfileInfo.module.css';
+import Preloader from '../../../common/Preloader/Preloader';
+import userPhoto from '../../../assets/images/headache.png';
 // import ProfileStatus from "./ProfileStatus";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 // import { useSelector } from "react-redux";
 // import { getStatusSelector } from "../../../../Redux/profile_selectors";
 

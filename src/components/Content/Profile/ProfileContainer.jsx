@@ -1,21 +1,21 @@
-import React from "react";
-import Profile from "./Profile";
-import { connect } from "react-redux";
+import React from 'react';
+import Profile from './Profile';
+import { connect } from 'react-redux';
 import {
   setStatusThunk,
   setUsersProfileThunk,
   updateStatusThunk,
-} from "../../../Redux/profile_reducer";
-import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
-import { compose } from "redux";
-import { setAuthUserDataThunk } from "../../../Redux/auth_reducer";
-import { withRouter } from "react-router-dom";
+} from '../../../Redux/profile_reducer';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { compose } from 'redux';
+import { setAuthUserDataThunk } from '../../../Redux/auth_reducer';
+import { withRouter } from 'react-router-dom';
 import {
   geIisAuthSelector,
   getAuthorizedUserIdSelector,
   getProfileSelector,
   getStatusSelector,
-} from "../../../Redux/profile_selectors";
+} from '../../../Redux/profile_selectors';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -26,6 +26,7 @@ class ProfileContainer extends React.Component {
     this.props.setUsersProfileThunk(userId);
     this.props.setAuthUserDataThunk(userId);
     this.props.setStatusThunk(userId);
+    console.log(this.isAuth);
   }
 
   render() {

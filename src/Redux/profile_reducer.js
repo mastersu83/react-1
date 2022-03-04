@@ -1,21 +1,21 @@
-import { profileAPI } from "../api/api";
+import { profileAPI } from '../api/api';
 
-const ADD_POST = "ADD_POST";
-const SET_USERS_PROFILE = "SET_USERS_PROFILE";
-const SET_STATUS = "SET_STATUS";
+const ADD_POST = 'ADD_POST';
+const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 // const GET_ID_USER_PROFILE = "GET_ID_USER_PROFILE";
 
 let initialState = {
   posts: [
-    { id: 1, message: "Hi, how are you?", likeCount: 33 },
+    { id: 1, message: 'Hi, how are you?', likeCount: 33 },
     { id: 2, message: "It's my first post", likeCount: 45 },
-    { id: 3, message: "welcome", likeCount: 73 },
-    { id: 4, message: "hello", likeCount: 12 },
+    { id: 3, message: 'welcome', likeCount: 73 },
+    { id: 4, message: 'hello', likeCount: 12 },
   ],
   profile: null,
   idUserProfile: null,
-  status: "",
-  updateStatusText: "",
+  status: '',
+  updateStatusText: '',
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -75,6 +75,7 @@ export const setUsersProfileThunk = (userId) => async (dispatch) => {
 };
 export const setStatusThunk = (userId) => async (dispatch) => {
   let response = await profileAPI.getStatus(userId);
+  console.log(response);
   dispatch(setStatus(response.data));
 };
 

@@ -11,30 +11,32 @@ import Preloader from './components/common/Preloader/Preloader';
 import 'antd/dist/antd.css';
 
 class App extends React.Component {
-	componentDidMount() {
-		this.props.initializeAppThunk();
-	}
-	render() {
-		if (!this.props.initialized) {
-			return <Preloader />;
-		}
-		return (
-			<div className="app-wrapper">
-				<Navbar />
-				<Route path="/" render={() => <HeaderContainer />} />
-				<Content />
-			</div>
-		);
-	}
+  componentDidMount() {
+    this.props.initializeAppThunk();
+  }
+  render() {
+    console.log('app');
+
+    if (!this.props.initialized) {
+      return <Preloader />;
+    }
+    return (
+      <div className="app-wrapper">
+        <Navbar />
+        <Route path="/" render={() => <HeaderContainer />} />
+        <Content />
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-	initialized: state.app.initialized,
+  initialized: state.app.initialized,
 });
 
 export default compose(
-	withRouter,
-	connect(mapStateToProps, {
-		initializeAppThunk,
-	})
+  withRouter,
+  connect(mapStateToProps, {
+    initializeAppThunk,
+  })
 )(App);
