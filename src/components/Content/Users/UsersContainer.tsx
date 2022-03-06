@@ -3,7 +3,7 @@ import {
   followThunk,
   unfollowThunk,
   getUsersThunk,
-} from "../../../Redux/users_reducer";
+} from "../../../redux/users_reducer";
 import React from "react";
 import Users from "./Users";
 import Preloader from "../../common/Preloader/Preloader";
@@ -16,22 +16,46 @@ import {
   getPageSizeSelector,
   getTotalUsersCountSelector,
   getUsersSelector,
-} from "../../../Redux/users_selectors";
+} from "../../../redux/users_selectors";
+import { UserType } from "../../../types/types";
+import { AppStateType } from "../../../redux/redux_store";
 
-class UsersContainer extends React.Component {
+type MapStatePropsType = {
+  currentPage: number;
+  pageSize: number;
+  isFetching: boolean;
+  totalUsersCount: number;
+  followingInProgress: Array<number>;
+  users: Array<UserType>;
+};
+type MapDispatchPropsType = {
+  getUsersThunk: (currentPage: number, pageSize: number) => void;
+  followThunk: (userId: number) => void;
+  unfollowThunk: (userId: number) => void;
+};
+
+type OwnPropsType = {
+  pageTitle: string;
+};
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType;
+
+class UsersContainer extends React.Component<PropsType> {
   componentDidMount() {
-    this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props;
+    this.props.getUsersThunk(currentPage, pageSize);
   }
 
-  onPageChanged = (currentPage) => {
-    this.props.getUsersThunk(currentPage, this.props.pageSize);
+  onPageChanged = (currentPage: number) => {
+    const { pageSize } = this.props;
+    this.props.getUsersThunk(currentPage, pageSize);
   };
 
   render() {
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
-
+        <h2>{this.props.pageTitle}</h2>
         <Users
           //{...props}
           totalUsersCount={this.props.totalUsersCount}
@@ -48,7 +72,7 @@ class UsersContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
   return {
     users: getUsersSelector(state),
     pageSize: getPageSizeSelector(state),
@@ -60,10 +84,13 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-  connect(mapStateToProps, {
-    followThunk,
-    unfollowThunk,
-    getUsersThunk,
-  }),
+  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(
+    mapStateToProps,
+    {
+      followThunk,
+      unfollowThunk,
+      getUsersThunk,
+    }
+  ),
   withAuthRedirect
 )(UsersContainer);

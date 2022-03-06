@@ -5,7 +5,7 @@ import userPhoto from '../../../assets/images/headache.png';
 // import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 // import { useSelector } from "react-redux";
-// import { getStatusSelector } from "../../../../Redux/profile_selectors";
+// import { getStatusSelector } from "../../../../redux/profile_selectors";
 
 const ProfileInfo = ({ profile, status, updateStatusThunk }) => {
   // const status = useSelector(getStatusSelector);

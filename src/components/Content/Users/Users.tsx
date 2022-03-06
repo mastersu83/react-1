@@ -1,12 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/headache.png";
 import { NavLink } from "react-router-dom";
 import Paginator from "../../common/Paginator/Paginator";
+import { UserType } from "../../../types/types";
 // import { useDispatch } from "react-redux";
-// import { getIdUserProfile } from "../../../Redux/profile_reducer";
+// import { getIdUserProfile } from "../../../redux/profile_reducer";
 
-const Users = ({
+type PropsType = {
+  totalUsersCount: number;
+  pageSize: number;
+  onPageChanged: (currentPage: number) => void;
+  currentPage: number;
+  users: Array<UserType>;
+  followingInProgress: Array<number>;
+  followThunk: (userId: number) => void;
+  unfollowThunk: (userId: number) => void;
+};
+
+const Users: FC<PropsType> = ({
   totalUsersCount,
   pageSize,
   followingInProgress,
@@ -14,7 +26,7 @@ const Users = ({
   unfollowThunk,
   currentPage,
   onPageChanged,
-  ...props
+  users,
 }) => {
   return (
     <div>
@@ -25,7 +37,7 @@ const Users = ({
           currentPage={currentPage}
           onPageChanged={onPageChanged}
         />
-        {props.users.map((u) => (
+        {users.map((u) => (
           <div key={u.id} className={classes.userBlock}>
             <div>{u.id}</div>
             <NavLink to={"/profile/" + u.id}>

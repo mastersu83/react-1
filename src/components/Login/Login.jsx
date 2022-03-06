@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import { Input } from "../common/FormsControls/FormsControls";
 import { required } from "../../utils/validators/validators";
 import { connect } from "react-redux";
-import { loginOutThunk, loginThunk } from "../../Redux/auth_reducer";
+import { loginOutThunk, loginThunk } from "../../redux/auth_reducer";
 import classes from "../common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {

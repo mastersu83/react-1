@@ -6,12 +6,12 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 //   getAuthorizedUserIdSelector,
 //   getProfileSelector,
 //   idUserProfileSelector,
-// } from "../../../Redux/profile_selectors";
+// } from "../../../redux/profile_selectors";
 // import {
 //   setStatusThunk,
 //   setUsersProfileThunk,
-// } from "../../../Redux/profile_reducer";
-// import { setAuthUserDataThunk } from "../../../Redux/auth_reducer";
+// } from "../../../redux/profile_reducer";
+// import { setAuthUserDataThunk } from "../../../redux/auth_reducer";
 
 const Profile = ({ profile, status, updateStatusThunk }) => {
   // const dispatch = useDispatch();

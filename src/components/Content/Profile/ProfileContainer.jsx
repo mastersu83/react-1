@@ -5,17 +5,17 @@ import {
   setStatusThunk,
   setUsersProfileThunk,
   updateStatusThunk,
-} from '../../../Redux/profile_reducer';
+} from '../../../redux/profile_reducer';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import { compose } from 'redux';
-import { setAuthUserDataThunk } from '../../../Redux/auth_reducer';
+import { setAuthUserDataThunk } from '../../../redux/auth_reducer';
 import { withRouter } from 'react-router-dom';
 import {
   geIisAuthSelector,
   getAuthorizedUserIdSelector,
   getProfileSelector,
   getStatusSelector,
-} from '../../../Redux/profile_selectors';
+} from '../../../redux/profile_selectors';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {

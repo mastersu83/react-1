@@ -1,6 +1,6 @@
 import React from "react";
 // import { useDispatch } from "react-redux";
-// import { updateStatusThunk } from "../../../../Redux/profile_reducer";
+// import { updateStatusThunk } from "../../../../redux/profile_reducer";
 
 const ProfileStatusWithHooks = (props) => {
   // const dispatch = useDispatch();
