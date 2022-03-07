@@ -1,8 +1,12 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 // import { useDispatch } from "react-redux";
 // import { updateStatusThunk } from "../../../../redux/profile_reducer";
+type PropsType = {
+  status: string;
+  updateStatusThunk: (status: string) => void;
+};
 
-const ProfileStatusWithHooks = (props) => {
+const ProfileStatusWithHooks: React.FC<PropsType> = (props) => {
   // const dispatch = useDispatch();
 
   const [editMode, setEditMode] = React.useState(false);
@@ -21,7 +25,7 @@ const ProfileStatusWithHooks = (props) => {
     // dispatch(updateStatusThunk(status));
   };
 
-  const onStatusChange = (e) => {
+  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value);
   };
 

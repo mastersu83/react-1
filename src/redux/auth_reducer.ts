@@ -1,4 +1,4 @@
-import { authAPI } from "../api/api";
+import { authAPI, ResultCodeEnum } from "../api/api";
 import { stopSubmit } from "redux-form";
 
 const SET_USER_DATA = "SET_USER_DATA";
@@ -71,7 +71,7 @@ export const setAuthUserData = (
 export const setAuthUserDataThunk = () => async (dispatch: any) => {
   let data = await authAPI.me();
 
-  if (data.resultCode === 0) {
+  if (data.resultCode === ResultCodeEnum.Success) {
     let { id, email, login } = data.data;
     dispatch(setAuthUserData(id, email, login, true));
   }

@@ -13,7 +13,7 @@ let initialState = {
     { id: 3, message: "welcome", likeCount: 73 },
     { id: 4, message: "hello", likeCount: 12 },
   ] as Array<PostsType>,
-  profile: null as Array<ProfileType> | null,
+  profile: null as ProfileType | null,
   idUserProfile: null as number | null,
   status: "",
   updateStatusText: "",
@@ -100,7 +100,6 @@ export const setUsersProfileThunk =
   };
 export const setStatusThunk = (userId: number) => async (dispatch: any) => {
   let response = await profileAPI.getStatus(userId);
-  console.log(response);
   dispatch(setStatus(response.data));
 };
 

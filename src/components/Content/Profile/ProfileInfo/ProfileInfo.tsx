@@ -1,13 +1,24 @@
-import React from 'react';
-import classes from './ProfileInfo.module.css';
-import Preloader from '../../../common/Preloader/Preloader';
-import userPhoto from '../../../assets/images/headache.png';
+import React from "react";
+import classes from "./ProfileInfo.module.css";
+import Preloader from "../../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/headache.png";
 // import ProfileStatus from "./ProfileStatus";
-import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import { ProfileType } from "../../../../types/types";
 // import { useSelector } from "react-redux";
 // import { getStatusSelector } from "../../../../redux/profile_selectors";
 
-const ProfileInfo = ({ profile, status, updateStatusThunk }) => {
+type PropsType = {
+  profile: ProfileType | null;
+  status: string;
+  updateStatusThunk: () => void;
+};
+
+const ProfileInfo: React.FC<PropsType> = ({
+  profile,
+  status,
+  updateStatusThunk,
+}) => {
   // const status = useSelector(getStatusSelector);
 
   if (!profile) {
